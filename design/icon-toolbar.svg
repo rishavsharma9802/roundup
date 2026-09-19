@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Roundup">
+  <title>Roundup</title>
+
+  <!-- Flat slate badge with a teal rim. The rim is the whole point: bare
+       #0f1a24 sits within a few points of Chrome's dark toolbar (#202124) and
+       loses its silhouette there. Inset by 4 so the 8px stroke stays on canvas. -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#0f1a24" stroke="#2dd4bf" stroke-width="8"/>
+
+  <!-- The bracket: spine plus two arms. -->
+  <rect x="28" y="30" width="13" height="68" rx="6.5" fill="#ffffff"/>
+  <rect x="28" y="30" width="27" height="13" rx="6.5" fill="#ffffff"/>
+  <rect x="28" y="85" width="27" height="13" rx="6.5" fill="#ffffff"/>
+
+  <!-- Two tabs gathered inside it. -->
+  <rect x="56" y="47" width="42" height="14" rx="7" fill="#2dd4bf"/>
+  <rect x="56" y="67" width="30" height="14" rx="7" fill="#38bdf8"/>
+</svg>

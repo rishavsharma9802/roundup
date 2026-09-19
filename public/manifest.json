@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Roundup \u2014 Automatically Group Your Tabs",
+  "version": "1.0.0",
+  "description": "Every tab in its place. Group tabs by your own rules or built-in categories \u2014 no server, no account, no analytics.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabs", "tabGroups", "storage", "favicon"],
+  "background": {
+    "service_worker": "assets/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Roundup",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "commands": {
+    "group-now": {
+      "suggested_key": { "default": "Alt+Shift+G" },
+      "description": "Group tabs in the current window"
+    },
+    "undo-grouping": {
+      "suggested_key": { "default": "Alt+Shift+Z" },
+      "description": "Undo the last grouping"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; base-uri 'self'"
+  }
+}

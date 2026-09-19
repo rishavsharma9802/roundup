@@ -1,0 +1,20 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # One PR a week for the build tooling instead of five. Anything that
+      # actually ships to users stays ungrouped so it gets read properly.
+      build-tooling:
+        dependency-type: development
+
+  # Keeps the pinned action versions in .github/workflows current, so the CI
+  # does not quietly rot on a major version nobody maintains any more.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly

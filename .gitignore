@@ -1,0 +1,15 @@
+# build output — regenerate with `npm run build`
+dist/
+*.zip
+
+# dependencies
+node_modules/
+
+# working leftovers from the desktop bridge (rm is blocked on mounted folders)
+_to_delete/
+
+# os / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/

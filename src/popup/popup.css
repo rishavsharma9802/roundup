@@ -1,0 +1,432 @@
+.tg-popup {
+  width: 340px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+/* ---- header ------------------------------------------------------------- */
+
+.tg-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tg-brand {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.tg-brand img {
+  border-radius: 5px;
+}
+
+.tg-head-meta {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tg-chip {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--tg-text-dim);
+  background: var(--tg-panel-alt);
+  border: 1px solid var(--tg-border);
+  border-radius: 999px;
+  padding: 2.5px 8px;
+}
+
+.tg-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--tg-radius-sm);
+  color: var(--tg-text-dim);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.tg-icon-btn:hover:not(:disabled) {
+  background: var(--tg-panel-alt);
+  color: var(--tg-text);
+}
+
+.tg-icon-btn.tg-locked {
+  color: var(--tg-accent);
+}
+
+/* ---- primary actions ---------------------------------------------------- */
+
+.tg-actions {
+  display: flex;
+  gap: 7px;
+}
+
+.tg-primary {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 38px;
+  border-radius: var(--tg-radius);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, var(--tg-accent) 0%, var(--tg-sky) 130%);
+  box-shadow: var(--tg-shadow);
+  transition: filter 0.12s ease, transform 0.06s ease;
+}
+
+.tg-primary:hover:not(:disabled) {
+  filter: brightness(1.07);
+}
+
+.tg-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.tg-secondary {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--tg-radius);
+  color: var(--tg-text-dim);
+  background: var(--tg-panel);
+  border: 1px solid var(--tg-border);
+}
+
+.tg-secondary:hover:not(:disabled) {
+  color: var(--tg-text);
+  border-color: var(--tg-border-strong);
+}
+
+/* ---- status line -------------------------------------------------------- */
+
+.tg-status {
+  margin: -3px 0 0;
+  font-size: 11.5px;
+  color: var(--tg-text-dim);
+  min-height: 14px;
+}
+
+.tg-status-error {
+  color: var(--tg-danger);
+}
+
+/* ---- group list --------------------------------------------------------- */
+
+.tg-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tg-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 10.5px;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tg-text-faint);
+}
+
+.tg-count {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  color: var(--tg-text-dim);
+  background: var(--tg-panel-alt);
+  border-radius: 999px;
+  padding: 1px 6px;
+}
+
+.tg-empty {
+  margin: 2px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--tg-text-dim);
+  background: var(--tg-panel);
+  border: 1px dashed var(--tg-border-strong);
+  border-radius: var(--tg-radius);
+  padding: 11px;
+}
+
+.tg-group-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.tg-group-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 7px;
+  border-radius: var(--tg-radius-sm);
+  background: var(--tg-panel);
+  border: 1px solid var(--tg-border);
+}
+
+.tg-group-row:hover {
+  border-color: var(--tg-border-strong);
+}
+
+.tg-group-name {
+  flex: 1;
+  text-align: left;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tg-group-name:hover {
+  color: var(--tg-accent);
+}
+
+.tg-group-count {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--tg-text-faint);
+  min-width: 16px;
+  text-align: right;
+}
+
+/* ---- footer ------------------------------------------------------------- */
+
+.tg-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 9px;
+  border-top: 1px solid var(--tg-border);
+}
+
+.tg-link {
+  font-size: 11.5px;
+  color: var(--tg-accent);
+  padding: 0;
+}
+
+.tg-link:hover {
+  text-decoration: underline;
+}
+
+.tg-kbd-hint {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 10px;
+  color: var(--tg-text-faint);
+}
+
+.tg-kbd-hint kbd {
+  font-family: var(--tg-mono);
+  font-size: 9.5px;
+  background: var(--tg-panel-alt);
+  border: 1px solid var(--tg-border);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+
+/* ---- "nothing happened" notice ------------------------------------------ */
+
+/*
+ * A grouping run that moves nothing is usually correct, but silence reads as a
+ * broken button. This block states the reason and, where possible, offers the
+ * single control that unblocks it.
+ */
+.tg-notice {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: -3px;
+  padding: 10px 11px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--tg-text-dim);
+  background: var(--tg-panel);
+  border: 1px solid var(--tg-border-strong);
+  border-left: 3px solid var(--tg-accent);
+  border-radius: var(--tg-radius-sm);
+}
+
+.tg-notice p {
+  margin: 0;
+}
+
+.tg-notice-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--tg-text);
+  font-size: 12.5px;
+}
+
+.tg-notice-head svg {
+  color: var(--tg-accent);
+  flex: none;
+}
+
+.tg-notice-btn {
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 550;
+  color: #fff;
+  background: var(--tg-accent);
+  border-radius: var(--tg-radius-sm);
+  padding: 6px 11px;
+  transition: filter 0.12s ease;
+}
+
+.tg-notice-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.tg-notice-foot {
+  font-size: 11px;
+  color: var(--tg-text-faint);
+}
+
+.tg-status-good {
+  color: var(--tg-accent);
+}
+
+/* ---- inline group rename ------------------------------------------------ */
+
+.tg-group-editing {
+  border-color: var(--tg-accent);
+  box-shadow: 0 0 0 3px var(--tg-accent-soft);
+}
+
+.tg-rename-input {
+  flex: 1;
+  min-width: 0;
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 2px 6px;
+  background: transparent;
+  border: none;
+}
+
+.tg-rename-input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+/* ---- doesn't-fit? / learned sites ---------------------------------------- */
+
+.tg-fixer {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tg-fix-lede {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--tg-text-faint);
+}
+
+.tg-fix-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tg-fix-row {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border: 1px solid var(--tg-border);
+  border-radius: 8px;
+  background: var(--tg-panel-alt);
+}
+
+.tg-fix-icon {
+  border-radius: 3px;
+  flex: none;
+}
+
+.tg-fix-icon-blank {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: var(--tg-border);
+  display: inline-block;
+}
+
+.tg-fix-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.3;
+}
+
+.tg-fix-domain {
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tg-fix-note {
+  font-size: 10px;
+  color: var(--tg-text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tg-fix-pick {
+  font: inherit;
+  font-size: 11px;
+  padding: 3px 4px;
+  max-width: 104px;
+  border-radius: 6px;
+  border: 1px solid var(--tg-border-strong);
+  background: var(--tg-panel);
+  color: var(--tg-text);
+}
+
+.tg-fix-flag {
+  color: var(--tg-text-faint);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.tg-fix-flag:hover {
+  color: var(--tg-accent);
+}
+
+.tg-learned .tg-fix-row {
+  border-left: 2px solid var(--tg-accent);
+}

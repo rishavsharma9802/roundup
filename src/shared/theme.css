@@ -1,0 +1,153 @@
+/*
+ * Roundup design tokens.
+ *
+ * The look is deliberately its own: a cool slate surface with a teal-to-sky
+ * accent, flat panels with hairline borders, and a monospace face reserved for
+ * anything the user types as a pattern. Light and dark are both first-class.
+ */
+
+:root {
+  --tg-accent: #0d9488;
+  --tg-accent-strong: #0f766e;
+  --tg-accent-soft: rgba(13, 148, 136, 0.12);
+  --tg-sky: #0284c7;
+
+  --tg-bg: #f6f8fa;
+  --tg-panel: #ffffff;
+  --tg-panel-alt: #f0f3f7;
+  --tg-border: #dde3ea;
+  --tg-border-strong: #c6d0dc;
+
+  --tg-text: #0f1a24;
+  --tg-text-dim: #5a6b7d;
+  --tg-text-faint: #8a99a8;
+
+  --tg-danger: #dc2626;
+  --tg-warn: #b45309;
+
+  --tg-radius: 10px;
+  --tg-radius-sm: 7px;
+  --tg-shadow: 0 1px 2px rgba(15, 26, 36, 0.06), 0 4px 12px rgba(15, 26, 36, 0.05);
+
+  --tg-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --tg-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Chrome tab-group swatches, used for colour pickers and group dots. */
+  --tg-grey: #7c8797;
+  --tg-blue: #1a73e8;
+  --tg-red: #d93025;
+  --tg-yellow: #f9ab00;
+  --tg-green: #1e8e3e;
+  --tg-pink: #d01884;
+  --tg-purple: #9334e6;
+  --tg-cyan: #007b83;
+  --tg-orange: #fa903e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tg-accent: #2dd4bf;
+    --tg-accent-strong: #5eead4;
+    --tg-accent-soft: rgba(45, 212, 191, 0.14);
+    --tg-sky: #38bdf8;
+
+    --tg-bg: #0d141f;
+    --tg-panel: #151e2c;
+    --tg-panel-alt: #1b2635;
+    --tg-border: #263243;
+    --tg-border-strong: #35455a;
+
+    --tg-text: #e6edf5;
+    --tg-text-dim: #98a7ba;
+    --tg-text-faint: #6b7d92;
+
+    --tg-danger: #f87171;
+    --tg-warn: #fbbf24;
+
+    --tg-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.28);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--tg-font);
+  background: var(--tg-bg);
+  color: var(--tg-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--tg-text);
+  background: var(--tg-panel);
+  border: 1px solid var(--tg-border);
+  border-radius: var(--tg-radius-sm);
+  padding: 7px 9px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--tg-accent);
+  box-shadow: 0 0 0 3px var(--tg-accent-soft);
+}
+
+/* Visible focus for keyboard users without a ring on every mouse click. */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--tg-accent);
+  outline-offset: 1px;
+}
+
+.tg-mono {
+  font-family: var(--tg-mono);
+  font-size: 12px;
+}
+
+/* Group colour dot, driven by a data attribute so markup stays clean. */
+.tg-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--tg-grey);
+}
+
+.tg-dot[data-color='grey'] { background: var(--tg-grey); }
+.tg-dot[data-color='blue'] { background: var(--tg-blue); }
+.tg-dot[data-color='red'] { background: var(--tg-red); }
+.tg-dot[data-color='yellow'] { background: var(--tg-yellow); }
+.tg-dot[data-color='green'] { background: var(--tg-green); }
+.tg-dot[data-color='pink'] { background: var(--tg-pink); }
+.tg-dot[data-color='purple'] { background: var(--tg-purple); }
+.tg-dot[data-color='cyan'] { background: var(--tg-cyan); }
+.tg-dot[data-color='orange'] { background: var(--tg-orange); }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

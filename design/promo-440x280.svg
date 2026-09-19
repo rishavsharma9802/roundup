@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 280" width="440" height="280">
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#12a6a0" stop-opacity="0.38"></stop>
+      <stop offset="1" stop-color="#12a6a0" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+
+  <rect width="440" height="280" fill="#0e181f"></rect>
+  <circle cx="120" cy="140" r="150" fill="url(#glow)"></circle>
+
+  <g transform="translate(56 84)">
+    <rect x="0" y="0" width="112" height="112" rx="30" fill="#0f1a24"></rect>
+    <rect x="24" y="27" width="11" height="58" rx="5.5" fill="#ffffff"></rect>
+    <rect x="24" y="27" width="24" height="11" rx="5.5" fill="#ffffff"></rect>
+    <rect x="24" y="74" width="24" height="11" rx="5.5" fill="#ffffff"></rect>
+    <rect x="45" y="40" width="43" height="13" rx="6.5" fill="#2dd4bf"></rect>
+    <rect x="45" y="59" width="30" height="13" rx="6.5" fill="#38bdf8"></rect>
+  </g>
+
+  <g>
+    <rect x="212" y="72" width="66" height="17" rx="8.5" fill="#2dd4bf"></rect>
+    <rect x="288" y="72" width="54" height="17" rx="8.5" fill="#27373f"></rect>
+    <rect x="352" y="72" width="42" height="17" rx="8.5" fill="#1e2c33"></rect>
+
+    <rect x="212" y="122" width="58" height="17" rx="8.5" fill="#38bdf8"></rect>
+    <rect x="280" y="122" width="48" height="17" rx="8.5" fill="#27373f"></rect>
+    <rect x="338" y="122" width="56" height="17" rx="8.5" fill="#1e2c33"></rect>
+
+    <rect x="212" y="172" width="72" height="17" rx="8.5" fill="#f0a44a"></rect>
+    <rect x="294" y="172" width="44" height="17" rx="8.5" fill="#27373f"></rect>
+    <rect x="348" y="172" width="46" height="17" rx="8.5" fill="#1e2c33"></rect>
+  </g>
+</svg>

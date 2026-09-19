@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Test and build (Node ${{ matrix.node }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [20, 22]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      # ci, not install: fails if package-lock.json and package.json disagree,
+      # which is the whole point of committing a lockfile.
+      - run: npm ci
+
+      - name: Unit tests
+        run: npm test
+
+      # `npm run build` typechecks first, so a type error fails here.
+      - name: Build
+        run: npm run build
+
+      - name: Verify the package
+        run: node scripts/verify-package.mjs
+
+      - name: Zip it
+        if: matrix.node == 22
+        run: cd dist && zip -qr ../roundup.zip . -x '*.map'
+
+      # Download this from the run summary and upload it straight to the
+      # Chrome Web Store — it is built from a clean checkout, so it cannot
+      # carry anything from a developer machine.
+      - name: Upload the extension
+        if: matrix.node == 22
+        uses: actions/upload-artifact@v4
+        with:
+          name: roundup-extension
+          path: roundup.zip
+          retention-days: 30
+
+  audit:
+    name: Dependency audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      # React and React DOM are the only things that reach users, so anything
+      # at all here is a real finding and fails the run.
+      - name: Dependencies that ship
+        run: npm audit --omit=dev --audit-level=low
+
+      # Vite and Vitest never leave the build machine. Reported, never fatal.
+      - name: Build-only dependencies (advisory)
+        run: npm audit || true
+
+  dependency-review:
+    name: Dependency review
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate

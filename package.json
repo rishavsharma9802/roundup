@@ -1,0 +1,36 @@
+{
+  "name": "roundup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Roundup - rule-driven Chrome tab grouping, duplicate cleanup, and tab sleeping.",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "zip": "npm run build && npm run verify && cd dist && zip -r ../roundup.zip . -x '*.map'",
+    "smoke": "node scripts/smoke-test.mjs",
+    "verify": "node scripts/verify-package.mjs"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "playwright": "^1.62.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rishavsharma9802/roundup.git"
+  },
+  "license": "MIT",
+  "author": "Rishav Kumar Sharma"
+}
