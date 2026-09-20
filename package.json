@@ -2,14 +2,14 @@
   "name": "roundup",
   "version": "1.0.0",
   "private": true,
-  "description": "Roundup - rule-driven Chrome tab grouping, duplicate cleanup, and tab sleeping.",
+  "description": "Roundup - rule-driven Chrome tab grouping with a learning site catalog. No server, no account, no analytics.",
   "type": "module",
   "scripts": {
     "dev": "vite build --watch --mode development",
     "build": "tsc --noEmit && vite build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "zip": "npm run build && npm run verify && cd dist && zip -r ../roundup.zip . -x '*.map'",
+    "zip": "npm run build && npm run verify && rm -f roundup.zip && cd dist && zip -qr ../roundup.zip . -x '*.map'",
     "smoke": "node scripts/smoke-test.mjs",
     "verify": "node scripts/verify-package.mjs"
   },

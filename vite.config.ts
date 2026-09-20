@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // Multi-entry MV3 build:
-//  - three extension pages (popup / options / dashboard)
+//  - two extension pages (popup / options)
 //  - the service worker, emitted as an ES module at assets/background.js
 //    (manifest.json declares "type": "module", so static imports are allowed)
 export default defineConfig({
@@ -20,7 +20,6 @@ export default defineConfig({
       input: {
         popup: 'popup.html',
         options: 'options.html',
-        dashboard: 'dashboard.html',
         background: 'src/background/index.ts',
       },
       output: {
