@@ -85,7 +85,12 @@ Roundup organises the user's open browser tabs into Chrome tab groups.
 | `favicon` | Roundup shows site icons next to entries in its own popup and options page so users can recognise sites at a glance. |
 
 **Host permissions:** none requested.
-**Remote code:** No, the extension executes no remote code.
+
+**Remote code** — answer "No, I am not using remote code", then paste:
+
+```
+All code executed by Roundup ships inside the extension package. There are no script tags referencing remote sources, no eval or new Function, and no dynamically imported modules. The extension makes no network requests at all, and a continuous integration check fails the build if fetch, XMLHttpRequest, WebSocket or sendBeacon appear anywhere in the shipped bundle.
+```
 
 **Data usage — check these boxes**
 
@@ -120,10 +125,31 @@ CHROME_BIN=<chrome> xvfb-run -a node scripts/capture-store-shots.mjs
 python3 scripts/compose-store-shots.py
 ```
 
+
+### Image format rules the dashboard enforces
+
+Screenshots and both promo tiles must be **JPEG or 24-bit PNG with no alpha
+channel** — an RGBA PNG is rejected at upload. The store icon is the exception:
+it may keep transparency, and should, because the store expects padding around
+the mark.
+
+`scripts/compose-store-shots.py` already writes RGB. The promo tile comes from
+cairosvg, which emits RGBA, so flatten it after regenerating:
+
+```bash
+python3 -c "
+from PIL import Image
+im = Image.open('store/promo-440x280.png')
+im.convert('RGB').save('store/promo-440x280.png')
+"
+```
+
 ---
 
 ## Before you hit Submit
 
+0. **Settings page** (once per account): set a publisher contact email and
+   verify it. Nothing can be submitted until that address is verified.
 1. `npm run zip` — builds, verifies, and writes `roundup.zip`
 2. Upload `roundup.zip` under **Package**
 3. Confirm the short description in the dashboard matches `manifest.description`
