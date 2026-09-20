@@ -13,3 +13,6 @@ _to_delete/
 *.swp
 .idea/
 .vscode/
+
+# intermediate store captures — regenerate with scripts/capture-store-shots.mjs
+store/raw/
